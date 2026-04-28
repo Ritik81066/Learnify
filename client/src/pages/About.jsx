@@ -34,24 +34,9 @@ const About = () => {
 
   const team = [
     {
-      name: "Abhishek Bhatia",
+      name: "Ritik Goyal",
       role: "Founder",
-      image: "https://via.placeholder.com/150",
-    },
-    {
-      name: "Akshit Mittal",
-      role: "Founder",
-      image: "https://via.placeholder.com/150",
-    },
-    {
-      name: "Amjad Mishal",
-      role: "Founder",
-      image: "https://via.placeholder.com/150",
-    },
-    {
-      name: "Aditya",
-      role: "Founder",
-      image: "https://via.placeholder.com/150",
+      image: "../public/Pic.png",
     },
   ];
 
@@ -184,7 +169,7 @@ const About = () => {
           >
             Meet Our Team
           </motion.h2>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
+          <div className="flex flex-wrap content-center align-center item-center justify-center gap-8 max-w-5xl mx-auto">
             {team.map((member, idx) => (
               <motion.div
                 key={idx}
@@ -197,7 +182,7 @@ const About = () => {
                 <img
                   src={member.image}
                   alt={member.name}
-                  className="w-full h-48 object-cover"
+                  className="w-40 h-48 object-fill"
                 />
                 <div className="p-6 text-center">
                   <h3 className="text-xl font-semibold mb-2 text-gray-800">

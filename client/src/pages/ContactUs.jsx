@@ -54,7 +54,7 @@ const ContactUs = () => {
     {
       icon: Mail,
       title: "Email Us",
-      details: "support@learnify.com",
+      details: "ritik81066@gmail.com",
       description: "Send us an email anytime",
     },
     {

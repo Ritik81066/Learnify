@@ -120,7 +120,7 @@ const PaymentFailed = () => {
           {/* Footer */}
           <div className="bg-gray-50 px-4 py-3 border-t text-center">
             <p className="text-[11px] text-gray-500">
-              Need help? support@lms.com
+              Need help? ritik81066@gmail.com
             </p>
           </div>
         </div>
