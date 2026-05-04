@@ -29,10 +29,21 @@ app.post(
   handleStripeWebhook
 );
 
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://learnify-frontend-six.vercel.app"
+];
 app.use(
   cors({
-    origin: process.env.CLIENT_URL,
-    methods: ["POST", "GET", "PUT", "DELETE", "PATCH", "OPTIONS"],
+    origin: function (origin, callback) {
+      if (!origin) return callback(null, true);
+
+      if (allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      } else {
+        return callback(new Error("Not allowed by CORS"));
+      }
+    },
     credentials: true,
   })
 );
@@ -42,16 +53,16 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(globalRateLimiter);
 
-app.use("/api/auth", authRoutes);
-app.use("/api/user", userRoutes);
-app.use("/api/course", courseRoutes);
-app.use("/api/lecture", lectureRoutes);
-app.use("/api/cart", cartRoutes);
-app.use("/api/review", reviewRoute);
-app.use("/api/payment", paymentRoutes);
-app.use("/api/dashboard", dashboardRoutes);
-app.use("/api/currency", currencyRoutes);
-app.use("/api/contact", contactRoutes);
+app.use("/auth", authRoutes);
+app.use("/user", userRoutes);
+app.use("/course", courseRoutes);
+app.use("/lecture", lectureRoutes);
+app.use("/cart", cartRoutes);
+app.use("/review", reviewRoute);
+app.use("/payment", paymentRoutes);
+app.use("/dashboard", dashboardRoutes);
+app.use("/currency", currencyRoutes);
+app.use("/contact", contactRoutes);
 
 app.listen(PORT, () => {
   console.log(`✅ Server running on port ${PORT}`);
